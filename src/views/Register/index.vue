@@ -30,7 +30,7 @@
     </section>
     <footer class="register-footer">
       <p class="content font-24">
-        '已有账号？马上'
+        已有账号？马上
         <span class="go-login">登录</span>
       </p>
     </footer>
@@ -115,6 +115,22 @@ export default {
       background-color: #ff4c17;
       border-radius: 6px;
     }
+  }
+  .register-footer {
+    box-sizing: border-box;
+    width: 10rem;
+    margin: 0 auto;
+    // padding: 0 0.1rem 1rem;
+    font-size: 0.8rem;
+    margin-right: 2.4rem;
+  }
+  .content {
+    text-align: right;
+  }
+  .go-login {
+    color: #5094f7;
+    width: 3rem;
+    height: 1.6rem;
   }
 }
 </style>
