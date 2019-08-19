@@ -75,12 +75,15 @@ export default {
     width: 24.864rem;
     margin: 1.2rem auto;
     padding: 0 2rem;
-    font-size: 0.78rem;
+
+    .font-24 {
+      font-size: 0.78rem;
+    }
 
     .input-group {
       display: flex;
       align-items: center;
-      padding: 0 0 0.2rem;
+      padding: 0 0 0.22rem;
       border-bottom: 1px solid #ddd;
       position: relative;
 
@@ -88,12 +91,29 @@ export default {
         color: #fff;
       }
       input {
-        width: 14.5298rem;
+        width: 15.5298rem;
         border: none;
       }
     }
     .password {
       margin: 1.6rem 0 0;
+
+      .input-group {
+        display: flex;
+        align-items: center;
+        padding: 0 0 0.13333333rem;
+        border-bottom: 1px solid #ddd;
+        position: relative;
+      }
+    }
+    .register-btn {
+      height: 2.4rem;
+      margin: 1.6rem 0 0;
+      line-height: 2.4rem;
+      text-align: center;
+      color: #fff;
+      background-color: #ff4c17;
+      border-radius: 6px;
     }
   }
 }
