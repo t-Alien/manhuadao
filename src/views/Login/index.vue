@@ -2,10 +2,30 @@
   <!-- login 登录组件页面 -->
   <div class="page-login">
     <header class="header-photo">
-      <router-link class="icon-back" to="/login"></router-link>
+      <router-link class="icon-back" to="/mine"></router-link>
       <router-link class="icon-reg" to="/register">注册</router-link>
       <div class="header-pic"></div>
     </header>
+
+    <section class="login-main">
+      <div class="input-group font-24">
+        <label>邮 箱：</label>
+        <input type="text" placeholder="请输入您的邮箱" />
+      </div>
+      <div class="input-group font-24 password">
+        <label>密 码：</label>
+        <input type="password" placeholder="请输入您的密码" />
+        <span class="forget font-20">忘记密码?</span>
+      </div>
+      <div class="login-btn font-26">登录</div>
+    </section>
+    <footer class="login-third">
+      <p class="third-title font-20">或者用以下方式登录</p>
+      <div class="third-group">
+        <div class="login-qq"></div>
+        <div class="login-weibo"></div>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -17,7 +37,7 @@ export default {
 <style lang="scss">
 .page-login {
   width: 100%;
-  height: 22.8744rem;
+  height: 20.8744rem;
   padding: 3.29333333rem 0 0;
   margin: 0 auto;
   background: url(../../../public/img/img-bg1.png) no-repeat top;
@@ -39,7 +59,7 @@ export default {
     margin: 0 auto;
     background: url(../../../public/img/pic.png) no-repeat 50%;
     background-size: cover;
-    margin-top: 10rem;
+    margin-top: 8rem;
   }
   .icon-reg {
     width: 5.6rem;
@@ -53,6 +73,91 @@ export default {
     top: 0;
     right: 0;
     color: #000;
+  }
+  .login-main {
+    box-sizing: border-box;
+    width: 24.864rem;
+    margin: 1rem auto;
+    padding: 0 2rem;
+
+    .font-24 {
+      font-size: 0.78rem;
+    }
+    .password {
+      margin: 0.8rem 0 0;
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      padding: 0 0 0.24rem;
+      border-bottom: 1px solid #ddd;
+      position: relative;
+      margin: 2rem 0 0;
+
+      input {
+        border: none;
+      }
+      .forget {
+        color: #5094f9;
+        position: absolute;
+        right: 0;
+      }
+    }
+    .login-btn {
+      height: 2.4rem;
+      margin: 1.2rem 0 0;
+      line-height: 2.4rem;
+      text-align: center;
+      color: #fff;
+      background-color: #ff4c17;
+      border-radius: 6px;
+    }
+  }
+  .login-third {
+    box-sizing: border-box;
+    width: 10rem;
+    margin: 0.74666667rem auto;
+    padding: 0 1rem;
+    position: relative;
+    font-size: 0.68rem;
+
+    .third-title {
+      width: 10rem;
+      // margin: auto;
+      text-align: center;
+      background-color: #fff;
+      position: absolute;
+      z-index: 999;
+      top: -0.18666667rem;
+      left: 0;
+      right: 0;
+    }
+    .third-group {
+      width: 15rem;
+      display: flex;
+      // justify-content: space-around;
+      // -webkit-box-align: center;
+      // align-items: center;
+      text-align: center;
+      padding: 3rem 0.06666667rem 0;
+
+      .login-qq {
+        width: 4rem;
+        height: 4rem;
+        background: url(../../../public/img/qq.png) no-repeat;
+        background-size: contain;
+        padding-right: 2rem;
+      }
+
+      .login-weibo {
+        width: 4rem;
+        height: 4rem;
+        background: url(../../../public/img/weibo.png) no-repeat;
+        background-size: contain;
+        padding-right: 2rem;
+      }
+    }
   }
 }
 </style>
