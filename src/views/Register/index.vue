@@ -2,7 +2,7 @@
   <!-- register 注册组件页面 -->
   <div class="page-register">
     <header class="header-photo">
-      <div class="icon-back"></div>
+      <router-link class="icon-back" to="/login"></router-link>
       <div class="header-pic"></div>
     </header>
     <section class="register-main">
