@@ -15,7 +15,8 @@
 </template>
 
 <script>
-const axios = require('axios')
+import request from '../../utils/request'
+
 export default {
   name: 'vip',
   data() {
@@ -30,9 +31,9 @@ export default {
   },
   methods: {
     getVipList() {
-      axios.get('http://localhost:3000/vip').then(response => {
-        console.log(response.data)
-        this.vipList = response.data
+      request.get('/vip').then(data => {
+        //console.log(response.data)
+        this.vipList = data
       })
     }
   },
