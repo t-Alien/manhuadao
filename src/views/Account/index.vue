@@ -1,4 +1,4 @@
 <template>
-  <!-- account 关于组件页面 -->
+  <!-- account 账户组件页面 -->
   <div class="page-account"></div>
 </template>

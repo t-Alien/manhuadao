@@ -2,9 +2,9 @@
   <!-- ranking 排行组件页面 -->
   <div class="page-ranking">
     <div class="header">
-      <div class="header-back" @click="rangkingBack">返回</div>
+      <div class="header-back" @click="rangkingBack"></div>
       <span>排行榜</span>
-      <div class="header-search">搜索</div>
+      <div class="header-search"></div>
     </div>
     <div class="ranking-bank">
       <ul class="ranking-list">
@@ -23,7 +23,7 @@ import request from '../../utils/request'
 
 export default {
   name: 'Ranking',
-  data () {
+  data() {
     return {
       rankingList: [],
       list: [
@@ -71,9 +71,21 @@ export default {
   .header {
     display: flex;
     justify-content: space-between;
-    min-height: 2rem;
-    padding: 0 0.5rem;
+    min-height: 46px;
+    padding: 0 10px;
     align-items: center;
+    .header-back {
+      width: 24px;
+      height: 14px;
+      background: url('../../../public/img/back.png') no-repeat;
+      background-size: contain;
+    }
+    .header-search {
+      width: 24px;
+      height: 20px;
+      background: url('../../../public/img/search.png') no-repeat;
+      background-size: contain;
+    }
   }
   .ranking-bank {
     .ranking-list {

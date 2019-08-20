@@ -1,10 +1,11 @@
 <template>
   <!-- vip VIP专区组件页面 -->
   <div class="page-vip">
+    <TabBar />
     <div class="header">
-      <div class="header-back" @click="vipBack">返回</div>
+      <div class="header-back" @click="vipBack"></div>
       <span>VIP专区</span>
-      <div class="header-search">搜索</div>
+      <div class="header-search"></div>
     </div>
     <div class="vip-list">
       <ul class="vip-list-ul">
@@ -27,27 +28,30 @@
 
 <script>
 import request from '../../utils/request'
-
+import TabBar from '../../components/TabBar'
 export default {
   name: 'vip',
-  data () {
+  data() {
     return {
       vipList: []
     }
   },
+  components: {
+    TabBar
+  },
   methods: {
-    getVipList () {
+    getVipList() {
       request.get('/vip').then(data => {
         // console.log(response.data)
         this.vipList = data
       })
     },
-    vipBack () {
+    vipBack() {
       this.$router.back()
     }
   },
 
-  created () {
+  created() {
     this.getVipList()
   }
 }
@@ -63,9 +67,21 @@ export default {
   .header {
     display: flex;
     justify-content: space-between;
-    min-height: 2rem;
-    padding: 0 0.5rem;
+    min-height: 48px;
+    padding: 0 10px;
     align-items: center;
+    .header-back {
+      width: 24px;
+      height: 14px;
+      background: url('../../../public/img/back.png') no-repeat;
+      background-size: contain;
+    }
+    .header-search {
+      width: 24px;
+      height: 20px;
+      background: url('../../../public/img/search.png') no-repeat;
+      background-size: contain;
+    }
   }
   .vip-list {
     flex: 1;
