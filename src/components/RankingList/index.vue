@@ -1,5 +1,5 @@
 <template>
-  <div class="ranking-list">
+  <div class="rank-list">
     <ul class="ranking-list-ul">
       <li class="ranking-list-item" v-for="item in rankingList" :key="item.id">
         <a href="#">
@@ -32,7 +32,7 @@ export default {
 
 <style lang="scss">
 @import '../../assets/styles/common/mixin.scss';
-.ranking-list {
+.rank-list {
   flex: 1;
   .ranking-list-ul {
     display: flex;

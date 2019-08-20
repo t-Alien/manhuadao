@@ -6,13 +6,14 @@
       <span>排行榜</span>
       <div class="header-search"></div>
     </div>
-    <div class="ranking-bank">
-      <ul class="ranking-list">
-        <li v-for="item in list" :key="item.id">
-          <a @click="onChange(item)" :class="item.type === curType ? 'active-link':''">{{item.name}}</a>
-        </li>
-      </ul>
-    </div>
+    <!-- <div class="ranking-bank"> -->
+    <ul class="ranking-list">
+      <li v-for="item in list" :key="item.id" class="ranking-bank">
+        <a @click="onChange(item)" :class="item.type === curType ? 'active-link':''">{{item.name}}</a>
+      </li>
+    </ul>
+    <!-- </div> -->
+
     <RankingList :rankingList="rankingList" />
   </div>
 </template>
@@ -87,24 +88,25 @@ export default {
       background-size: contain;
     }
   }
-  .ranking-bank {
-    .ranking-list {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 10px 0;
-      li {
-        width: 20%;
-        font-size: 15px;
-        line-height: 28px;
-        text-align: center;
-        a {
-          color: #333;
-        }
-        .active-link {
-          color: #e7370c;
-        }
+  //.ranking-bank {
+  .ranking-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 46px;
+    padding: 10px 0;
+    .ranking-bank {
+      width: 20%;
+      font-size: 15px;
+      line-height: 28px;
+      text-align: center;
+      a {
+        color: #333;
+      }
+      .active-link {
+        color: #e7370c;
       }
     }
   }
+  //}
 }
 </style>
