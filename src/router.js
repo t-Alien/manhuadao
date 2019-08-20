@@ -50,6 +50,7 @@ const routes = [
   {
     //登录页
     path: '/login',
+    name: 'Login',
     component: () => import('./views/Login/index.vue'),
     meta: {
       title: '登录'
@@ -58,6 +59,7 @@ const routes = [
   {
     //注册页
     path: '/register',
+    name: 'Register',
     component: () => import('./views/Register/index.vue'),
     meta: {
       title: '注册'
