@@ -27,22 +27,22 @@
 import request from '../../utils/request'
 export default {
   name: 'RankingList',
-  data() {
+  data () {
     return {
       rankingList: []
     }
   },
   methods: {
-    getRankingList() {
+    getRankingList () {
       request.get('/ranking', {}).then(data => {
-        //console.log(response.data)
+        // console.log(response.data)
         this.rankingList = data.popularity
-        //this.rankingList = data[xxx]
+        // this.rankingList = data[xxx]
       })
     }
   },
 
-  created() {
+  created () {
     this.getRankingList()
   }
 }

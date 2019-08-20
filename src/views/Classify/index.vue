@@ -2,73 +2,77 @@
   <!-- classify 分类组件页面 -->
   <div class="page-classify">
     <div class="header-normal">
-      <div class="header-back"></div>
+      <div class="header-back" @click="back"></div>
       <span class="header-title font-32">分类</span>
-      <div class="header-search"></div>
+      <router-link class="header-search" to="/search"></router-link>
     </div>
-    <div class="header-type">
-      <div class="item active" v-for="(item,index) in list" :key="index">{{item}}</div>
-    </div>
-    <section class="classify-list">
-      <div class="list-item" v-for="(item,index) in Classify" :key="index">
-        <div class="item-pic">{{item.hellokid}}</div>
-        <div class="item-info">
-          <div class="info-book font-30">{{item.hellokid.title}}</div>
-          <div class="info-author font-26">作者：{{item.hellokid.author}}</div>
-          <div class="info-fans font-26">人气 {{item.hellokid.popularity}}</div>
-        </div>
-      </div>
-    </section>
+    <ul class="header-type">
+      <li v-for="item in list" :key="item.type" class="item">
+        <a @click="onChange(item)" :class="item.type === curType ? 'active' : ''">{{item.name}}</a>
+      </li>
+    </ul>
+    <ClassifyList :classifyList="classifyList" />
   </div>
 </template>
 <script>
 import Vue from 'vue'
 import request from '../../utils/request'
-import { Button } from 'vant'
-Vue.use(Button)
+import { NavBar } from 'vant'
+import ClassifyList from '../../components/ClassifyList'
+Vue.use(NavBar)
 export default {
   name: 'Classify',
+
   data() {
     return {
-      list: ['热血', '恋爱', '搞笑', '魔幻', '悬疑', '少儿'],
-      Classify: {},
-      hellokid: {},
-      laugh: {},
-      love: {},
-      magical: {},
-      suapense: {},
-      warmBlood: {}
+      classifyList: [],
+      list: [
+        { name: '热血', type: 'warmBlood' },
+        { name: '恋爱', type: 'love' },
+        { name: '搞笑', type: 'laugh' },
+        { name: '魔幻', type: 'magical' },
+        { name: '悬疑', type: 'suapense' },
+        { name: '少儿', type: 'helloKid' }
+      ],
+      curType: 'warmBlood'
     }
   },
+  components: {
+    ClassifyList
+  },
   methods: {
-    getdata() {
-      request
-        .get('/classify')
-        .then(data => {
-          console.log(data)
-          // this.Classify = data
-        })
-        .catch(error => {
-          console.log(error)
-        })
+    back() {
+      this.$router.back()
+    },
+
+    onChange(item) {
+      this.curType = item.type
+      this.getDate()
+    },
+    getDate() {
+      request.get('/classify').then(res => {
+        this.classifyList = res[this.curType]
+      })
     }
   },
   created() {
-    this.getdata()
+    this.getDate()
   }
 }
 </script>
-<style lang="scss">
+ <style lang="scss">
 @import '../../assets/styles/common/mixin.scss';
 html * {
   outline: 0;
 }
 body,
 html {
-  min-height: 100%;
+  height: 100%;
   overflow-x: hidden;
 }
 .page-classify {
+  height: 100%;
+  flex-direction: column;
   .header-normal {
     display: flex;
     justify-content: center;
@@ -102,8 +106,7 @@ html {
       width: 21px;
       height: 21px;
       position: absolute;
-      top: 12px;
-      right: 12px;
+      right: 16px;
       background: url(../../../public/img/search.png) no-repeat;
       background-size: contain;
     }
@@ -113,60 +116,15 @@ html {
     flex-wrap: wrap;
     width: 350px;
     margin: 0 auto;
-    padding: 10px 0;
+    padding: 20px 0 0 15px;
     border-bottom: 1px solid #dbd9dc;
     .item {
       width: 20%;
       font-size: 14px;
       line-height: 25px;
       text-align: center;
-    }
-  }
-  .classify-list {
-    width: 350px;
-    margin: 0 auto;
-    .list-item {
-      box-sizing: border-box;
-      display: flex;
-      align-items: center;
-      width: 100%;
-      height: 125px;
-      padding: 0 0 0 10px;
-      border-bottom: 1px solid #dbd9dc;
-      position: relative;
-    }
-    .list-item .item-pic {
-      width: 80px;
-      height: 105px;
-      border-radius: 6px;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: top;
-    }
-    .list-item .item-info {
-      max-width: 70%;
-      margin: 0 0 0 10px;
-      color: #999;
-      .info-book {
-        margin: 0 0 20px;
-        color: #333;
-        font-weight: 500;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-      }
-      .info-author {
-        font-weight: 500;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-        margin: 0 0 20px;
-      }
-      .info-fans {
-        font-weight: 500;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
+      .active {
+        color: #e7370c;
       }
     }
   }
