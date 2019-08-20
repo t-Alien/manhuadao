@@ -30,24 +30,24 @@ import request from '../../utils/request'
 
 export default {
   name: 'vip',
-  data() {
+  data () {
     return {
       vipList: []
     }
   },
   methods: {
-    getVipList() {
+    getVipList () {
       request.get('/vip').then(data => {
-        //console.log(response.data)
+        // console.log(response.data)
         this.vipList = data
       })
     },
-    vipBack() {
+    vipBack () {
       this.$router.back()
     }
   },
 
-  created() {
+  created () {
     this.getVipList()
   }
 }
@@ -111,4 +111,3 @@ export default {
   }
 }
 </style>
-

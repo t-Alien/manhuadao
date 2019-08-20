@@ -30,7 +30,7 @@
 import RankingList from '../../components/RankingList'
 export default {
   name: 'Ranking',
-  data() {
+  data () {
     return {
       list: [
         { id: 1, name: '热搜榜' },
@@ -47,13 +47,12 @@ export default {
     RankingList
   },
   methods: {
-    rangkingBack() {
+    rangkingBack () {
       this.$router.back()
     },
-    fn1(item) {
+    fn1 (item) {
       console.log(item)
       this.liu = item.id
-      return
     }
   }
 }
