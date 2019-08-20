@@ -28,3 +28,15 @@
     }
 }
 
+@mixin border-home{
+    position: relative;
+    &::before{
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        content: '';
+        height:10px;
+        background: #dbd9dc;
+    }
+}
