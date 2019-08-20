@@ -2,7 +2,7 @@
   <!-- feedback 反馈组件页面 -->
   <div class="page-feedback">
     <header class="header-normal">
-      <div class="header-back"></div>
+      <router-link to="/mine" class="header-back"></router-link>
       <span class="header-title font-32">求书&反馈</span>
       <span class="header-submit font-28">提交</span>
     </header>

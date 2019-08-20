@@ -31,7 +31,7 @@
     <footer class="register-footer">
       <p class="content font-24">
         已有账号？马上
-        <span class="go-login">登录</span>
+        <router-link to="/login" class="go-login">登录</router-link>
       </p>
     </footer>
   </div>
@@ -47,7 +47,7 @@ export default {
 .page-register {
   width: 100%;
   height: 22.8744rem;
-  padding: 3.29333333rem 0 0;
+  padding: 1.29333333rem 0 0;
   margin: 0 auto;
   background: url(../../../public/img/img-bg1.png) no-repeat top;
   background-size: cover;
@@ -73,7 +73,7 @@ export default {
   .register-main {
     box-sizing: border-box;
     width: 24.864rem;
-    margin: 1.2rem auto;
+    margin: 2.1rem auto;
     padding: 0 2rem;
 
     .font-24 {
