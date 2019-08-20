@@ -27,23 +27,8 @@
 import request from '../../utils/request'
 export default {
   name: 'RankingList',
-  data() {
-    return {
-      rankingList: []
-    }
-  },
-  methods: {
-    getRankingList() {
-      request.get('/ranking', {}).then(data => {
-        //console.log(response.data)
-        this.rankingList = data.popularity
-        //this.rankingList = data[xxx]
-      })
-    }
-  },
-
-  created() {
-    this.getRankingList()
+  props: {
+    rankingList: Array
   }
 }
 </script>>

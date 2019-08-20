@@ -9,52 +9,55 @@
     <div class="ranking-bank">
       <ul class="ranking-list">
         <li v-for="item in list" :key="item.id">
-          <!-- <router-link
-            to="#"
-            @click="fn1(item)"
-           :class="item.id==liu ? 'active-link':''"
-          >{{item.name}}</router-link>-->
-          <router-link
-            to="/"
-            @click="fn1(item)"
-            :class="item.id==liu ? 'active-link':''"
-          >{{item.name}}</router-link>
+          <a @click="onChange(item)" :class="item.type === curType ? 'active-link':''">{{item.name}}</a>
         </li>
       </ul>
     </div>
-    <RankingList />
+    <RankingList :rankingList="rankingList" />
   </div>
 </template>
 
 <script>
 import RankingList from '../../components/RankingList'
+import request from '../../utils/request'
+
 export default {
   name: 'Ranking',
   data() {
     return {
+      rankingList: [],
       list: [
-        { id: 1, name: '热搜榜' },
-        { id: 2, name: '人气榜' },
-        { id: 3, name: '畅销榜' },
-        { id: 4, name: '新书榜' },
-        { id: 5, name: '完结榜' },
-        { id: 6, name: '免费榜' }
+        { name: '热搜榜', type: 'hotSearch' },
+        { name: '人气榜', type: 'popularity' },
+        { name: '畅销榜', type: 'hotSale' },
+        { name: '新书榜', type: 'newBook' },
+        { name: '完结榜', type: 'end' },
+        { name: '免费榜', type: 'free' }
       ],
-      liu: ''
+      curType: 'hotSearch'
     }
   },
   components: {
     RankingList
   },
   methods: {
+    // 获取数据
+    getList() {
+      request.get('/ranking').then(res => {
+        // console.log(res)
+        this.rankingList = res[this.curType]
+      })
+    },
     rangkingBack() {
       this.$router.back()
     },
-    fn1(item) {
-      console.log(item)
-      this.liu = item.id
-      return
+    onChange(item) {
+      this.curType = item.type
+      this.getList()
     }
+  },
+  created() {
+    this.getList()
   }
 }
 </script>
