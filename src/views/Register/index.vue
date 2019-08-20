@@ -92,6 +92,7 @@ export default {
       }
       input {
         width: 15.5298rem;
+        outline: none;
         border: none;
       }
     }

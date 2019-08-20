@@ -22,8 +22,14 @@
     <footer class="login-third">
       <p class="third-title font-20">或者用以下方式登录</p>
       <div class="third-group">
-        <div class="login-qq"></div>
-        <div class="login-weibo"></div>
+        <router-link
+          to="https://graph.qq.com/oauth2.0/show?which=Login&display=pc&client_id=101339421&response_type=token&scope=all&redirect_uri=https%3A%2F%2Fm.manhuadao.cn%2Flogin.html%3Flogintype%3Dqq%26backurl%3Dhttps%253A%252F%252Fm.manhuadao.cn%252Ffavorite.html%253Fcpid%253D0"
+          class="login-qq"
+        ></router-link>
+        <router-link
+          to="https://api.weibo.com/oauth2/authorize?client_id=1550699632&response_type=token&redirect_uri=https%3A%2F%2Fm.manhuadao.cn%2Flogin.html%3Flogintype%3Dweibo%26backurl%3Dhttps%253A%252F%252Fm.manhuadao.cn%252Ffavorite.html%253Fcpid%253D0&cpid=0"
+          class="login-weibo"
+        ></router-link>
       </div>
     </footer>
   </div>
@@ -97,6 +103,7 @@ export default {
 
       input {
         border: none;
+        outline: none;
       }
       .forget {
         color: #5094f9;
