@@ -30,7 +30,6 @@
         />
       </p>
       <span class="tiShi">{{ tiShi.tishi2 }}</span>
-      <br />
       <p class="input-group font-24 password">
         <label>确认密码：</label>
         <input
@@ -117,6 +116,7 @@ export default {
         this.tiShi.tishi3 = '您输入的两次密码不一致噢！'
       }
     },
+
     flag() {
       //alert(1)
       this.tiShi.tishi1 = ''
@@ -230,7 +230,7 @@ export default {
     .input-group {
       display: flex;
       align-items: center;
-      padding: 0 0 0.22rem;
+      padding: 0 0 0.8rem;
       border-bottom: 1px solid #ddd;
       position: relative;
 
