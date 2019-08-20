@@ -32,9 +32,19 @@
     </van-grid>
     
     <!-- 主体内容 -->
-    <Content></Content>
-  </div>
+   <Content :dets='details'></Content>
   
+
+    <!-- 页脚 -->
+    <div class="footer">
+      <img src="https://wechatapp.zhuishushenqi.com/mhd/201711/gongan.jpg" alt="">
+      <p>沪公网安备 31011202006214号</p><br>
+      <p>增值电信业务经营许可证沪B2-20170022</p><br>
+      <p>网络文化经营许可证沪网文（2016）3206-227号</p><br>
+      <p>出版物经营许可证新出发沪批字第U7659号</p><br>
+    </div>
+
+  </div>
 </template>
 
 
@@ -53,31 +63,35 @@ export default {
   },
   computed:{
     ...mapState('banner',['bannerList']),
+    ...mapState('content',['details']),
   },
   methods:{
     ...mapActions('banner', ['getBannerList']),
-    ...mapMutations('banner',['setBannerList'])
+    ...mapMutations('banner',['setBannerList']),
+    ...mapActions('content',['getDetails']),
   },
   created(){
     this.getBannerList();
-   
+    this.getDetails();
+
   }
   
 }
 </script>
 
 <style lang="scss">
-html,body{width: 100%}
+ html,body{width: 100%}
 .header{
   height: 45px;
   display: flex;
-  padding: 0 10px;
   align-items: center;
   justify-content: space-between;
-  //  position: fixed;
-  //  z-index: 10;
-  //  width: 100%;
-  overflow: hidden;
+  padding: 0 10px;
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  background: white;
   .imgp{
     width: 93px;
     height: 28px;
@@ -93,8 +107,28 @@ html,body{width: 100%}
     color: #ccc;
   }
 }
+
 .van-grid-item{
   height: 100px;
+  .van-grid-item__icon{
+    font-size: 50px;
+  }
 }
-
+.footer{
+  margin-top: 30px;
+  position: relative;
+  p{
+    font-size: 12px;
+    text-align: center;
+    line-height: 2px;
+  }
+  p:nth-of-type(1){
+    color: #333;
+  }
+  img{
+    position: absolute;
+    top: -9px;
+    left: 79px;
+  }
+}
 </style>

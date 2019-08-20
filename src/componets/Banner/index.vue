@@ -10,23 +10,22 @@ export default {
     props:{
        imgs: Array,
     }
-    // created() {
-    //   console.log(imgs);
-      
-    // }
 }
 </script>
 
 
 <style lang='scss'>
 .van-swipe{
+  padding-top: 45px;
   overflow-x: auto;
-  background: blue;
   width: 100%;
   height:180px;
   .van-swipe-item{
-    
-    width: 100%;
+    img{
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
   }
 }
 </style>

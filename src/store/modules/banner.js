@@ -19,7 +19,6 @@ export default{
         getBannerList({commit}){
             request.get('https://mhd.zhuishushenqi.com/comic_v2/getproad?apptype=8&appversion=1.0&channel=web-app&adgroupid=123').then(response=>{
                 if(response.code===200){
-                    console.log(response.info)
                     commit({
                         type:'setBannerList',
                         info:response.info
