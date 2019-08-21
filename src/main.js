@@ -2,7 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from './store'
-import { Swipe, SwipeItem ,Grid, GridItem,Image, Tab, Tabs, Toast} from 'vant';
+import { Swipe, SwipeItem ,Grid, GridItem,Image, Tab, Tabs, Toast,Search } from 'vant';
 
 import "./assets/styles/base.scss";
 import 'vant/lib/index.css';
@@ -16,6 +16,7 @@ Vue.use(Swipe)
 .use(Tab)
 .use(Tabs)
 .use(Toast)
+.use(Search)
 
 new Vue({
   router,
