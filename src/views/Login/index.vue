@@ -65,39 +65,39 @@ export default {
     login() {
       this.usertishi = ''
       this.passtishi = ''
-      //用户名随意
+      // 用户名随意
       var obj = JSON.parse(this.Info)
-      /*console.log(obj[0])//去数组里的第一组数据*/
+      /* console.log(obj[0])//去数组里的第一组数据 */
       if (!this.userIn.user) {
         this.usertishi = '用户名不能为空'
       }
-      //判断注册的数组中是否能找到输入的用户名
+      // 判断注册的数组中是否能找到输入的用户名
       var testList = obj.find(item => {
         return this.userIn.user === item.username
       })
       if (!testList) this.usertishi = '用户名不存在'
-      //密码
+      // 密码
       if (!this.userIn.pass) {
         this.passtishi = '密码不能为空'
       }
-      //判断输入的密码是否为输入的用户名的密码
+      // 判断输入的密码是否为输入的用户名的密码
       var testpass = obj.find(item => {
         return (
           this.userIn.pass === item.password &&
           this.userIn.user === item.username
         )
       })
-      /*console.log(testpass)*/
+      /* console.log(testpass) */
       if (!testpass) this.passtishi = '密码输入不正确'
       if (this.usertishi || this.passtishi) return
 
-      var userInfo = JSON.stringify(testpass) //把内容转换成字符串形式
+      var userInfo = JSON.stringify(testpass) // 把内容转换成字符串形式
 
       localStorage.setItem('userInfo', userInfo)
-      //跳转到首页
+      // 跳转到首页
       // window.location.href = '../Mine/index.vue'
       //跳转到我的页面
-      this.$router.push({ path: `/mine` })
+      this.$router.replace('/mine')
     }
   }
 }

@@ -62,7 +62,6 @@
   </div>
 </template>
 
-
 <script>
 import Banner from '../../componets/Banner'
 import Content from '../../componets/Content'

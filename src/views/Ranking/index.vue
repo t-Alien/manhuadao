@@ -40,21 +40,21 @@ export default {
   },
   methods: {
     // 获取数据
-    getList() {
+    getList () {
       request.get('/ranking').then(res => {
         // console.log(res)
         this.rankingList = res[this.curType]
       })
     },
-    rangkingBack() {
+    rangkingBack () {
       this.$router.back()
     },
-    onChange(item) {
+    onChange (item) {
       this.curType = item.type
       this.getList()
     }
   },
-  created() {
+  created () {
     this.getList()
   }
 }
