@@ -83,7 +83,9 @@ export default {
  <style lang="scss">
 @import '../../assets/styles/common/mixin.scss';
 .page-classify {
+  width: 100%;
   height: 100%;
+  display: flex;
   flex-direction: column;
   .header-normal {
     display: flex;
@@ -94,7 +96,6 @@ export default {
     margin: 0 auto;
     background-color: #fff;
     position: relative;
-
     .header-back {
       width: 23px;
       height: 13px;
@@ -127,7 +128,7 @@ export default {
     flex-wrap: wrap;
     width: 100%;
     margin: 0 auto;
-    padding: 20px 0 0 15px;
+    padding: 20px 0 15px 0;
     border-bottom: 1px solid #dbd9dc;
     .item {
       width: 20%;
