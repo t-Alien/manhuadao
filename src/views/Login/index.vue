@@ -97,7 +97,7 @@ export default {
       //跳转到首页
       // window.location.href = '../Mine/index.vue'
       //跳转到我的页面
-      this.$router.push({ path: `/mine` })
+      this.$router.replace('/mine')
     }
   }
 }
