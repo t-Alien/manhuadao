@@ -225,7 +225,7 @@ export default {
     }
     span{
         color: #b0b0b0;
-        font-size: 7px;
+        font-size: 13px;
         position: absolute;
         top: 31px;
         right: 24px;
