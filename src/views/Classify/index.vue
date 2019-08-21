@@ -1,6 +1,7 @@
 <template>
   <!-- classify 分类组件页面 -->
   <div class="page-classify">
+    <TabBar v-show="isShow" />
     <div class="header-normal">
       <div class="header-back" @click="back"></div>
       <span class="header-title font-32">分类</span>
@@ -34,7 +35,8 @@ export default {
         { name: '悬疑', type: 'suapense' },
         { name: '少儿', type: 'helloKid' }
       ],
-      curType: 'warmBlood'
+      curType: 'warmBlood',
+      isShow: false
     }
   },
   components: {
@@ -53,23 +55,33 @@ export default {
       request.get('/classify').then(res => {
         this.classifyList = res[this.curType]
       })
+    },
+    handleScroll(e) {
+      var scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop
+      if (scrollTop > 120) {
+        this.isShow = true
+      } else {
+        this.isShow = false
+      }
+    },
+    fatherMethod() {
+      document.documentElement.scrollTop = 0
     }
   },
   created() {
     this.getDate()
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll, true)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll) //  离开页面清除（移除）滚轮滚动事件
   }
 }
 </script>
  <style lang="scss">
 @import '../../assets/styles/common/mixin.scss';
-html * {
-  outline: 0;
-}
-body,
-html {
-  height: 100%;
-  overflow-x: hidden;
-}
 .page-classify {
   height: 100%;
   flex-direction: column;
@@ -77,7 +89,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 375px;
+    width: 100%;
     height: 45px;
     margin: 0 auto;
     background-color: #fff;
@@ -93,7 +105,6 @@ html {
       left: 12px;
     }
     .header-title {
-      max-width: 70%;
       color: #333;
       font-weight: 500;
       text-align: center;
@@ -114,7 +125,7 @@ html {
   .header-type {
     display: flex;
     flex-wrap: wrap;
-    width: 350px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px 0 0 15px;
     border-bottom: 1px solid #dbd9dc;

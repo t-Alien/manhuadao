@@ -1,27 +1,26 @@
 <template>
   <!-- vip VIP专区组件页面 -->
-  <div class="page-vip">
-    <div class="header">
-      <div class="header-back" @click="vipBack">返回</div>
+  <div class="page-vip" ref="myVip">
+    <TabBar v-show="isShow" />
+    <div class="header-vip">
+      <div class="header-back" @click="vipBack"></div>
       <span>VIP专区</span>
-      <div class="header-search">搜索</div>
+      <div class="header-search"></div>
     </div>
-    <div class="vip-list">
-      <ul class="vip-list-ul">
-        <li v-for="item in vipList" :key="item.id" class="vip-list-item">
-          <a href="#">
-            <div class="vip-list-img">
-              <img :src="item.imgUrl" alt />
-            </div>
-            <div class="vip-list-info">
-              <h3>{{item.title}}</h3>
-              <p>作者：{{item.author}}</p>
-              <p>人气：{{item.popularity}}</p>
-            </div>
-          </a>
-        </li>
-      </ul>
-    </div>
+    <ul class="vip-list-ul">
+      <li v-for="item in vipList" :key="item.id" class="vip-list-item">
+        <a href="#">
+          <div class="vip-list-img">
+            <img :src="item.imgUrl" alt />
+          </div>
+          <div class="vip-list-info">
+            <h3>{{item.title}}</h3>
+            <p>作者：{{item.author}}</p>
+            <p>人气：{{item.popularity}}</p>
+          </div>
+        </a>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -30,25 +29,45 @@ import request from '../../utils/request'
 
 export default {
   name: 'vip',
-  data () {
+  data() {
     return {
-      vipList: []
+      vipList: [],
+      isShow: false,
     }
   },
   methods: {
-    getVipList () {
+    getVipList() {
       request.get('/vip').then(data => {
-        // console.log(response.data)
         this.vipList = data
       })
     },
-    vipBack () {
+    vipBack() {
       this.$router.back()
+    },
+    ChangeModel() {
+      this.$refs.Model.show()
+    },
+    handleScroll(e) {
+      var scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop
+      if (scrollTop > 120) {
+        this.isShow = true
+      } else {
+        this.isShow = false
+      }
+    },
+    fatherMethod() {
+      document.documentElement.scrollTop = 0
     }
   },
-
-  created () {
+  created() {
     this.getVipList()
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll, true)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll) //  离开页面清除（移除）滚轮滚动事件
   }
 }
 </script>
@@ -59,53 +78,63 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
-
-  .header {
+  .header-vip {
     display: flex;
     justify-content: space-between;
-    min-height: 2rem;
-    padding: 0 0.5rem;
+    min-height: 46px;
+    padding: 0 10px;
     align-items: center;
-  }
-  .vip-list {
-    flex: 1;
-    .vip-list-ul {
-      display: flex;
-      flex-direction: column;
+    .header-back {
+      width: 24px;
+      height: 14px;
+      background: url('../../../public/img/back.png') no-repeat;
+      background-size: contain;
     }
-    .vip-list-item {
-      height: 94px;
-      padding: 10px 0 10px 10px;
-      @include border-bottom;
-      a {
-        display: flex;
+    .header-search {
+      width: 24px;
+      height: 20px;
+      background: url('../../../public/img/search.png') no-repeat;
+      background-size: contain;
+    }
+  }
+  .vip-list-ul {
+    // margin-top: 46px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .vip-list-item {
+    height: 94px;
+    padding: 10px 0 10px 10px;
+    @include border-bottom;
+    a {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+    }
+    .vip-list-img {
+      width: 66px;
+      img {
         width: 100%;
         height: 100%;
-        text-decoration: none;
+        border-radius: 6px;
       }
-      .vip-list-img {
-        width: 66px;
-        img {
-          width: 100%;
-          height: 100%;
-          border-radius: 6px;
-        }
-      }
-      .vip-list-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        padding: 0 10px;
+    }
+    .vip-list-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 0 10px;
 
-        h3 {
-          color: #333;
-          font-size: 14px;
-          font-weight: 500;
-        }
-        p {
-          color: #999;
-          font-size: 12px;
-        }
+      h3 {
+        color: #333;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      p {
+        color: #999;
+        font-size: 12px;
       }
     }
   }

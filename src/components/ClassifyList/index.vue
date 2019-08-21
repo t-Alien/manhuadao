@@ -22,7 +22,7 @@ export default {
 </script>>
 <style lang="scss">
 .classify-list {
-  width: 350px;
+  width: 100%;
   margin: 0 auto;
   .list-item {
     box-sizing: border-box;

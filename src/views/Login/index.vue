@@ -10,14 +10,23 @@
     <section class="login-main">
       <div class="input-group font-24">
         <label>邮 箱：</label>
-        <input type="text" placeholder="请输入您的邮箱" />
+        <input type="text" placeholder="请输入您的邮箱" v-model="userIn.user" />
       </div>
+      <span class="wppd">{{ usertishi }}</span>
       <div class="input-group font-24 password">
         <label>密 码：</label>
-        <input type="password" placeholder="请输入您的密码" />
+        <input type="password" placeholder="请输入您的密码" v-model="userIn.pass" @keyup.enter="login()" />
+
         <span class="forget font-20">忘记密码?</span>
       </div>
-      <div class="login-btn font-26">登录</div>
+      <span class="wppd">{{ passtishi }}</span>
+      <br />
+      <span class="wppd">{{ tishi }}</span>
+      <br />
+
+      <div class="login-btn font-26" @click="login()" id="login">登录</div>
+
+      <h3 v-show="isShow">{{Info}}</h3>
     </section>
     <footer class="login-third">
       <p class="third-title font-20">或者用以下方式登录</p>
@@ -37,7 +46,60 @@
 
 <script>
 export default {
-  name: 'Ligon'
+  name: 'Ligon',
+  data() {
+    return {
+      isShow: false,
+      Info: localStorage.getItem('userArr'),
+      usertishi: '',
+      passtishi: '',
+      tishi: '',
+      userIn: {
+        user: '',
+        pass: ''
+      }
+    }
+  },
+
+  methods: {
+    login() {
+      this.usertishi = ''
+      this.passtishi = ''
+      // 用户名随意
+      var obj = JSON.parse(this.Info)
+      /* console.log(obj[0])//去数组里的第一组数据 */
+      if (!this.userIn.user) {
+        this.usertishi = '用户名不能为空'
+      }
+      // 判断注册的数组中是否能找到输入的用户名
+      var testList = obj.find(item => {
+        return this.userIn.user === item.username
+      })
+      if (!testList) this.usertishi = '用户名不存在'
+      // 密码
+      if (!this.userIn.pass) {
+        this.passtishi = '密码不能为空'
+      }
+      // 判断输入的密码是否为输入的用户名的密码
+      var testpass = obj.find(item => {
+        return (
+          this.userIn.pass === item.password &&
+          this.userIn.user === item.username
+        )
+      })
+      /* console.log(testpass) */
+      if (!testpass) this.passtishi = '密码输入不正确'
+      if (this.usertishi || this.passtishi) return
+
+      var userInfo = JSON.stringify(testpass) // 把内容转换成字符串形式
+
+      localStorage.setItem('userInfo', userInfo)
+      // 跳转到首页
+      // window.location.href = '../Mine/index.vue'
+      //跳转到我的页面
+      this.$router.replace('/mine')
+    }
+  }
 }
 </script>
 <style lang="scss">
@@ -85,7 +147,10 @@ export default {
     width: 24.864rem;
     margin: 1rem auto;
     padding: 0 2rem;
-
+    .wppd {
+      font-size: 0.7rem;
+      color: red;
+    }
     .font-24 {
       font-size: 0.78rem;
     }

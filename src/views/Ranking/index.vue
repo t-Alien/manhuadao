@@ -1,18 +1,17 @@
 <template>
   <!-- ranking 排行组件页面 -->
   <div class="page-ranking">
-    <div class="header">
-      <div class="header-back" @click="rangkingBack">返回</div>
+    <TabBar v-show="isShow" />
+    <div class="header-rank">
+      <div class="header-back" @click="rangkingBack"></div>
       <span>排行榜</span>
-      <div class="header-search">搜索</div>
+      <div class="header-search"></div>
     </div>
-    <div class="ranking-bank">
-      <ul class="ranking-list">
-        <li v-for="item in list" :key="item.id">
-          <a @click="onChange(item)" :class="item.type === curType ? 'active-link':''">{{item.name}}</a>
-        </li>
-      </ul>
-    </div>
+    <ul class="ranking-list">
+      <li v-for="item in list" :key="item.id" class="ranking-bank">
+        <a @click="onChange(item)" :class="item.type === curType ? 'active-link':''">{{item.name}}</a>
+      </li>
+    </ul>
     <RankingList :rankingList="rankingList" />
   </div>
 </template>
@@ -23,7 +22,7 @@ import request from '../../utils/request'
 
 export default {
   name: 'Ranking',
-  data () {
+  data() {
     return {
       rankingList: [],
       list: [
@@ -34,7 +33,8 @@ export default {
         { name: '完结榜', type: 'end' },
         { name: '免费榜', type: 'free' }
       ],
-      curType: 'hotSearch'
+      curType: 'hotSearch',
+      isShow: false
     }
   },
   components: {
@@ -54,43 +54,76 @@ export default {
     onChange(item) {
       this.curType = item.type
       this.getList()
+    },
+    handleScroll(e) {
+      var scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop
+      if (scrollTop > 120) {
+        this.isShow = true
+      } else {
+        this.isShow = false
+      }
+    },
+    fatherMethod() {
+      document.documentElement.scrollTop = 0
     }
   },
   created() {
     this.getList()
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll, true)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll) //  离开页面清除（移除）滚轮滚动事件
   }
 }
 </script>
 
 <style lang="scss">
+html,
+body {
+  height: 100%;
+}
 .page-ranking {
   height: 100%;
   display: flex;
   flex-direction: column;
 
-  .header {
+  .header-rank {
     display: flex;
     justify-content: space-between;
-    min-height: 2rem;
-    padding: 0 0.5rem;
+    min-height: 46px;
+    padding: 0 10px;
     align-items: center;
+    .header-back {
+      width: 24px;
+      height: 14px;
+      background: url('../../../public/img/back.png') no-repeat;
+      background-size: contain;
+    }
+    .header-search {
+      width: 24px;
+      height: 20px;
+      background: url('../../../public/img/search.png') no-repeat;
+      background-size: contain;
+    }
   }
-  .ranking-bank {
-    .ranking-list {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 10px 0;
-      li {
-        width: 20%;
-        font-size: 15px;
-        line-height: 28px;
-        text-align: center;
-        a {
-          color: #333;
-        }
-        .active-link {
-          color: #e7370c;
-        }
+
+  .ranking-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 0;
+    .ranking-bank {
+      width: 20%;
+      font-size: 15px;
+      line-height: 28px;
+      text-align: center;
+      a {
+        color: #333;
+      }
+      .active-link {
+        color: #e7370c;
       }
     }
   }

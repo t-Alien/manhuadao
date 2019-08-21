@@ -8,7 +8,7 @@
         <ul class="recommend">
             <li class="item" v-for='item in dets[0] && dets[0].comicslist' :key='item.bigbook_id'>
                <div class="img-wrap"><img :src="item.coverurl"></div>
-               <p>{{item.bigbook_name}}</p> 
+               <p>{{item.bigbook_name}}</p>
                <p>{{item.key_name}}</p>
             </li>
         </ul>
@@ -23,7 +23,7 @@
                <li class="itemo" v-for='item in dets[1] && dets[1].comicslist' :key='item.bigbook_id'>
                <div class="img_wraps"><img :src="item.coverurl"></div>
                <p>{{item.bigbook_name}}</p>
-               <p>{{item.key_name}}</p> 
+               <p>{{item.key_name}}</p>
                </li>
             </ul>
         </div>
@@ -38,7 +38,7 @@
                <div class="img-wrap"><img :src="item.coverurl"></div>
                <p>{{item.bigbook_name}}</p>
                <p>{{item.key_name}}</p>
-              
+
             </li>
         </ul>
     </div>
@@ -50,7 +50,7 @@
         <ul class="recommendt">
             <li class="itemt" v-for='item in dets[3] && dets[3].comicslist' :key='item.bigbook_id'>
                <div class="img-wrap"><img :src="item.coverurl"></div>
-               <p>{{item.bigbook_name}}</p> 
+               <p>{{item.bigbook_name}}</p>
                <p>{{item.key_name}}</p>
             </li>
         </ul>
@@ -63,7 +63,7 @@
         <ul class="recommendt">
             <li class="itemt" v-for='item in dets[4] && dets[4].comicslist' :key='item.bigbook_id'>
                <div class="img-wrap"><img :src="item.coverurl"></div>
-               <p>{{item.bigbook_name}}</p> 
+               <p>{{item.bigbook_name}}</p>
                <p>{{item.key_name}}</p>
             </li>
         </ul>
@@ -76,7 +76,7 @@
         <ul class="recommendt">
             <li class="itemt" v-for='item in dets[5] && dets[5].comicslist' :key='item.bigbook_id'>
                <div class="img-wrap"><img :src="item.coverurl"></div>
-               <p>{{item.bigbook_name}}</p> 
+               <p>{{item.bigbook_name}}</p>
                <p>{{item.key_name}}</p>
             </li>
         </ul>
@@ -89,7 +89,7 @@
         <ul class="recommendt">
             <li class="itemt" v-for='item in dets[6] && dets[6].comicslist' :key='item.bigbook_id'>
                <div class="img-wrap"><img :src="item.coverurl"></div>
-               <p>{{item.bigbook_name}}</p> 
+               <p>{{item.bigbook_name}}</p>
                <p>{{item.key_name}}</p>
             </li>
         </ul>
@@ -102,7 +102,7 @@
         <ul class="recommendt">
             <li class="itemt" v-for='item in dets[7] && dets[7].comicslist' :key='item.bigbook_id'>
                <div class="img-wrap"><img :src="item.coverurl"></div>
-               <p>{{item.bigbook_name}}</p> 
+               <p>{{item.bigbook_name}}</p>
                <p>{{item.key_name}}</p>
             </li>
         </ul>
@@ -115,7 +115,7 @@
         <ul class="recommendt">
             <li class="itemt" v-for='item in dets[8] && dets[8].comicslist' :key='item.bigbook_id'>
                <div class="img-wrap"><img :src="item.coverurl"></div>
-               <p>{{item.bigbook_name}}</p> 
+               <p>{{item.bigbook_name}}</p>
                <p>{{item.key_name}}</p>
             </li>
         </ul>
@@ -130,7 +130,7 @@
                <div class="img-wrap"><img :src="item.coverurl"></div>
                <p>{{item.bigbook_name}}</p>
                <p>{{item.key_name}}</p>
-              
+
             </li>
         </ul>
     </div>
@@ -144,7 +144,7 @@
                <div class="img-wrap"><img :src="item.coverurl"></div>
                <p>{{item.bigbook_name}}</p>
                <p>{{item.key_name}}</p>
-              
+
             </li>
         </ul>
     </div>
@@ -158,7 +158,7 @@
                <div class="img-wrap"><img :src="item.coverurl"></div>
                <p>{{item.bigbook_name}}</p>
                <p>{{item.key_name}}</p>
-              
+
             </li>
         </ul>
     </div>
@@ -170,7 +170,7 @@
         <ul class="recommendt">
             <li class="itemt" v-for='item in dets[12] && dets[12].comicslist' :key='item.bigbook_id'>
                <div class="img-wrap"><img :src="item.coverurl"></div>
-               <p>{{item.bigbook_name}}</p> 
+               <p>{{item.bigbook_name}}</p>
                <p>{{item.key_name}}</p>
             </li>
         </ul>
@@ -203,13 +203,12 @@
 import { mapState, mapGetters } from 'vuex'
 
 export default {
-    name:'Content',
-    props:{
-        dets:Array,
-    },
+  name: 'Content',
+  props: {
+    dets: Array
+  }
 }
 </script>
-
 
 <style lang='scss'>
 @import '../../assets/styles/common/mixin.scss';
@@ -285,7 +284,7 @@ p2_common{
 }
 
 .index-itemo{
-    @include border-home; 
+    @include border-home;
     .recommendo{
     display: flex;
     justify-content: space-around;
@@ -327,10 +326,10 @@ p2_common{
         @extend p2_common
     }
     }
-   
+
 }
 .index-itemt{
-@include border-home; 
+@include border-home;
 .recommendt{
     display: flex;
     justify-content: space-between;
@@ -374,7 +373,7 @@ p2_common{
         padding: 0 8px;
         box-sizing: border-box;
         width: 100%;
-        
+
         .img-wrapl{
             height: 90px;
             width: 153px;

@@ -6,13 +6,12 @@
 
 <script>
 export default {
-    name:'Banner',
-    props:{
-       imgs: Array,
-    }
+  name: 'Banner',
+  props: {
+    imgs: Array
+  }
 }
 </script>
-
 
 <style lang='scss'>
 .van-swipe{
