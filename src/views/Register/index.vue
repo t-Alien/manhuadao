@@ -56,7 +56,7 @@
 export default {
   name: 'Register',
 
-  data() {
+  data () {
     return {
       isReturn: false,
       btn: false,
@@ -75,19 +75,19 @@ export default {
   },
 
   methods: {
-    //用户名
-    a() {
+    // 用户名
+    a () {
       this.tiShi.tishi1 = ''
       this.isReturn = true
-      var a = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/ //小写字母组成
+      var a = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/ // 小写字母组成
       if (!this.userInfo.user) this.tiShi.tishi1 = '邮箱名不能为空!'
       else if (!a.test(this.userInfo.user)) {
         this.isReturn = true
         this.tiShi.tishi1 = '你输入的邮箱格式有误噢!'
       }
     },
-    //密码
-    b() {
+    // 密码
+    b () {
       this.tiShi.tishi2 = ''
       this.isReturn = true
       var p = /^[a-zA-Z\d]{6,16}$/
@@ -99,8 +99,8 @@ export default {
         this.tiShi.tishi2 = '请输入6~16位的密码组合！'
       }
     },
-    //第二遍密码
-    c() {
+    // 第二遍密码
+    c () {
       this.tiShi.tishi3 = ''
       this.isReturn = true
       var p = /^[a-zA-Z\d]{6,16}$/
@@ -117,14 +117,14 @@ export default {
       }
     },
 
-    flag() {
-      //alert(1)
+    flag () {
+      // alert(1)
       this.tiShi.tishi1 = ''
       this.tiShi.tishi2 = ''
       this.tiShi.tishi3 = ''
 
-      //用户名
-      var a = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/ //小写字母组成
+      // 用户名
+      var a = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/ // 小写字母组成
       if (!this.userInfo.user) {
         this.tiShi.tishi1 = '邮箱名不能为空!'
         this.isReturn = true
@@ -137,18 +137,18 @@ export default {
       } else {
         array = []
       }
-      //遍历数组进行匹配
+      // 遍历数组进行匹配
       for (var i = 0; i < array.length; i++) {
-        //判断是否有相同账号
+        // 判断是否有相同账号
         console.log(array)
-        /*alert(array[i].username)*/
+        /* alert(array[i].username) */
         if (this.userInfo.user == array[i].username) {
           alert('该账号已存在')
-          /*this.tiShi.tiShi1='该账号已存在';*/
+          /* this.tiShi.tiShi1='该账号已存在'; */
           return
         }
       }
-      //字母开头 ，由字母+数字组成
+      // 字母开头 ，由字母+数字组成
       var p = /^[a-zA-Z\d]{6,16}$/
       if (!this.userInfo.password1) {
         this.isReturn = true
@@ -157,7 +157,7 @@ export default {
         this.isReturn = true
         this.tiShi.tishi2 = '请输入6~16位的密码组合！'
       }
-      //确认密码
+      // 确认密码
       if (!this.userInfo.password2) {
         this.isReturn = true
         this.tiShi.tishi3 = '密码不能为空'
@@ -170,7 +170,7 @@ export default {
         this.tiShi.tishi3 = '您输入的两次密码不一致'
       }
 
-      //创建对象
+      // 创建对象
       var obj = {
         username: this.userInfo.user,
         password: this.userInfo.password1,
@@ -179,7 +179,7 @@ export default {
         address: this.userInfo.address
       }
       array.push(obj)
-      window.localStorage.userArr = JSON.stringify(array) //把内容转换成字符串形式
+      window.localStorage.userArr = JSON.stringify(array) // 把内容转换成字符串形式
       localStorage.setItem('userArr', window.localStorage.userArr)
     }
   }

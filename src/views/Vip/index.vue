@@ -29,7 +29,7 @@ import request from '../../utils/request'
 import TabBar from '../../components/TabBar'
 export default {
   name: 'vip',
-  data() {
+  data () {
     return {
       vipList: []
     }
@@ -38,18 +38,18 @@ export default {
     TabBar
   },
   methods: {
-    getVipList() {
+    getVipList () {
       request.get('/vip').then(data => {
         // console.log(response.data)
         this.vipList = data
       })
     },
-    vipBack() {
+    vipBack () {
       this.$router.back()
     }
   },
 
-  created() {
+  created () {
     this.getVipList()
   }
 }

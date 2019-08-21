@@ -1,6 +1,6 @@
-/*用export把方法暴露出来*/
-/*设置cookie*/
-export function setCookie(c_name, value, expire) {
+/* 用export把方法暴露出来 */
+/* 设置cookie */
+export function setCookie (c_name, value, expire) {
   var date = new Date()
   date.setSeconds(date.getSeconds() + expire)
   document.cookie =
@@ -8,8 +8,8 @@ export function setCookie(c_name, value, expire) {
   console.log(document.cookie)
 }
 
-/*获取cookie*/
-export function getCookie(c_name) {
+/* 获取cookie */
+export function getCookie (c_name) {
   if (document.cookie.length > 0) {
     let c_start = document.cookie.indexOf(c_name + '=')
     if (c_start != -1) {
@@ -22,7 +22,7 @@ export function getCookie(c_name) {
   return ''
 }
 
-/*删除cookie*/
-export function delCookie(c_name) {
+/* 删除cookie */
+export function delCookie (c_name) {
   setCookie(c_name, '', -1)
 }

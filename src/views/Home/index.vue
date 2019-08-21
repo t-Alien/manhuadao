@@ -30,10 +30,9 @@
           text="历史" to="/history"
         />
     </van-grid>
-    
+
     <!-- 主体内容 -->
    <Content :dets='details'></Content>
-  
 
     <!-- 页脚 -->
     <div class="footer">
@@ -47,35 +46,33 @@
   </div>
 </template>
 
-
 <script>
 import Banner from '../../componets/Banner'
 import Content from '../../componets/Content'
-import { mapActions, mapMutations,mapState,mapGetters } from 'vuex'
+import { mapActions, mapMutations, mapState, mapGetters } from 'vuex'
 export default {
-  components:{
-      Banner,
-      Content
+  components: {
+    Banner,
+    Content
   },
-  data(){
-    return{
+  data () {
+    return {
     }
   },
-  computed:{
-    ...mapState('banner',['bannerList']),
-    ...mapState('content',['details']),
+  computed: {
+    ...mapState('banner', ['bannerList']),
+    ...mapState('content', ['details'])
   },
-  methods:{
+  methods: {
     ...mapActions('banner', ['getBannerList']),
-    ...mapMutations('banner',['setBannerList']),
-    ...mapActions('content',['getDetails']),
+    ...mapMutations('banner', ['setBannerList']),
+    ...mapActions('content', ['getDetails'])
   },
-  created(){
-    this.getBannerList();
-    this.getDetails();
-
+  created () {
+    this.getBannerList()
+    this.getDetails()
   }
-  
+
 }
 </script>
 

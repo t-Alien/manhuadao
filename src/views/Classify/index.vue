@@ -23,7 +23,7 @@ Vue.use(NavBar)
 export default {
   name: 'Classify',
 
-  data() {
+  data () {
     return {
       classifyList: [],
       list: [
@@ -41,21 +41,21 @@ export default {
     ClassifyList
   },
   methods: {
-    back() {
+    back () {
       this.$router.back()
     },
 
-    onChange(item) {
+    onChange (item) {
       this.curType = item.type
       this.getDate()
     },
-    getDate() {
+    getDate () {
       request.get('/classify').then(res => {
         this.classifyList = res[this.curType]
       })
     }
   },
-  created() {
+  created () {
     this.getDate()
   }
 }
@@ -77,7 +77,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 375px;
+    width: 100%;
     height: 45px;
     margin: 0 auto;
     background-color: #fff;
@@ -93,7 +93,7 @@ html {
       left: 12px;
     }
     .header-title {
-      max-width: 70%;
+     
       color: #333;
       font-weight: 500;
       text-align: center;
@@ -114,7 +114,7 @@ html {
   .header-type {
     display: flex;
     flex-wrap: wrap;
-    width: 350px;
+    width: 100%;
     margin: 0 auto;
     padding: 20px 0 0 15px;
     border-bottom: 1px solid #dbd9dc;
