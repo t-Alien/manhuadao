@@ -24,7 +24,7 @@ import request from '../../utils/request'
 
 export default {
   name: 'Ranking',
-  data () {
+  data() {
     return {
       rankingList: [],
       list: [

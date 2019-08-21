@@ -40,6 +40,11 @@ const routes = [
     component: () => import('./views/Mine/index.vue')
   },
   {
+    // 登录之后的我的页面
+    path: '/mine2',
+    component: () => import('./views/Mine2/index.vue')
+  },
+  {
     // 搜索页
     path: '/search',
     component: () => import('./views/Search/index.vue')

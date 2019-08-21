@@ -47,7 +47,7 @@
 <script>
 export default {
   name: 'Ligon',
-  data () {
+  data() {
     return {
       isShow: false,
       Info: localStorage.getItem('userArr'),
@@ -62,7 +62,7 @@ export default {
   },
 
   methods: {
-    login () {
+    login() {
       this.usertishi = ''
       this.passtishi = ''
       // 用户名随意
@@ -96,8 +96,8 @@ export default {
       localStorage.setItem('userInfo', userInfo)
       // 跳转到首页
       // window.location.href = '../Mine/index.vue'
-      // 跳转到我的页面
-      this.$router.push({ path: `/mine` })
+      //跳转到我的页面
+      this.$router.replace('/mine')
     }
   }
 }
