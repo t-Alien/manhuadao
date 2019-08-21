@@ -7,7 +7,9 @@ import { Swipe, SwipeItem ,Grid, GridItem,Image, Tab, Tabs, Toast,Search } from 
 import TabBar from './components/TabBar/index'
 
 import './assets/styles/base.scss'
+
 import 'vant/lib/index.css'
+
 Vue.config.productionTip = false
 
 Vue.use(Swipe)
