@@ -1,19 +1,16 @@
 <template>
   <!-- ranking 排行组件页面 -->
   <div class="page-ranking">
-    <div class="header">
+    <div class="header-rank">
       <div class="header-back" @click="rangkingBack"></div>
       <span>排行榜</span>
       <div class="header-search"></div>
     </div>
-    <!-- <div class="ranking-bank"> -->
     <ul class="ranking-list">
       <li v-for="item in list" :key="item.id" class="ranking-bank">
         <a @click="onChange(item)" :class="item.type === curType ? 'active-link':''">{{item.name}}</a>
       </li>
     </ul>
-    <!-- </div> -->
-
     <RankingList :rankingList="rankingList" />
   </div>
 </template>
@@ -64,12 +61,16 @@ export default {
 </script>
 
 <style lang="scss">
+html,
+body {
+  height: 100%;
+}
 .page-ranking {
   height: 100%;
   display: flex;
   flex-direction: column;
 
-  .header {
+  .header-rank {
     display: flex;
     justify-content: space-between;
     min-height: 46px;
@@ -88,11 +89,10 @@ export default {
       background-size: contain;
     }
   }
-  //.ranking-bank {
+
   .ranking-list {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 46px;
     padding: 10px 0;
     .ranking-bank {
       width: 20%;
@@ -107,6 +107,5 @@ export default {
       }
     }
   }
-  //}
 }
 </style>

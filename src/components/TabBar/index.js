@@ -1,8 +1,8 @@
-// import TabBar from './index.vue'
+import TabBar from './index.vue'
 
-// const TabBar = {
-//   install: function(Vue) {
-//     Vue.component('TabBar', TabBarComponent)
-//   }
-// }
-// export default TabBar
+
+export default {
+    install:(Vue) => {
+        Vue.component('TabBar',TabBar)
+    }
+}

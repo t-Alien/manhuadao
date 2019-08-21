@@ -1,9 +1,31 @@
 <template>
-  <div class="go-top">
+  <div class="go-top" v-if="model">
     <div class="icon-arrow-up"></div>顶部
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      model: false
+    }
+  },
+  methods: {
+    show() {
+      this.model = true
+    },
+    ConfirmHandler() {
+      this.show()
+      this.$emit('Confirm')
+    },
+    CancelHandler() {
+      this.show()
+      this.$emit('Cancel')
+    }
+  }
+}
+</script>>
 <style lang="scss">
 .go-top {
   width: 45px;
@@ -25,4 +47,4 @@
     background-size: contain;
   }
 }
-</style>>
+</style>

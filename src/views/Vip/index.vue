@@ -1,8 +1,8 @@
 <template>
   <!-- vip VIP专区组件页面 -->
   <div class="page-vip">
-    <!-- <TabBar /> -->
-    <div class="header">
+    <TabBar ref="Model" @click="scroll" />
+    <div class="header-vip">
       <div class="header-back" @click="vipBack"></div>
       <span>VIP专区</span>
       <div class="header-search"></div>
@@ -26,17 +26,18 @@
 
 <script>
 import request from '../../utils/request'
-import TabBar from '../../components/TabBar'
+// import TabBar from '../../components/TabBar'
 export default {
   name: 'vip',
   data() {
     return {
-      vipList: []
+      vipList: [],
+      isShow: false
     }
   },
-  components: {
-    TabBar
-  },
+  // components: {
+  //   TabBar
+  // },
   methods: {
     getVipList() {
       request.get('/vip').then(data => {
@@ -46,9 +47,12 @@ export default {
     },
     vipBack() {
       this.$router.back()
-    }
+    },
+    ChangeModel() {
+      this.$refs.Model.show()
+    },
+    scroll() {}
   },
-
   created() {
     this.getVipList()
   }
@@ -61,8 +65,7 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
-
-  .header {
+  .header-vip {
     display: flex;
     justify-content: space-between;
     min-height: 46px;
@@ -82,7 +85,7 @@ export default {
     }
   }
   .vip-list-ul {
-    margin-top: 46px;
+    // margin-top: 46px;
     flex: 1;
     display: flex;
     flex-direction: column;
