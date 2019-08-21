@@ -1,6 +1,7 @@
 <template>
   <!-- ranking 排行组件页面 -->
   <div class="page-ranking">
+    <TabBar v-show="isShow" />
     <div class="header-rank">
       <div class="header-back" @click="rangkingBack"></div>
       <span>排行榜</span>
@@ -32,7 +33,8 @@ export default {
         { name: '完结榜', type: 'end' },
         { name: '免费榜', type: 'free' }
       ],
-      curType: 'hotSearch'
+      curType: 'hotSearch',
+      isShow: false
     }
   },
   components: {
@@ -40,22 +42,40 @@ export default {
   },
   methods: {
     // 获取数据
-    getList () {
+    getList() {
       request.get('/ranking').then(res => {
         // console.log(res)
         this.rankingList = res[this.curType]
       })
     },
-    rangkingBack () {
+    rangkingBack() {
       this.$router.back()
     },
-    onChange (item) {
+    onChange(item) {
       this.curType = item.type
       this.getList()
+    },
+    handleScroll(e) {
+      var scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop
+      if (scrollTop > 120) {
+        this.isShow = true
+      } else {
+        this.isShow = false
+      }
+    },
+    fatherMethod() {
+      document.documentElement.scrollTop = 0
     }
   },
-  created () {
+  created() {
     this.getList()
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll, true)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll) //  离开页面清除（移除）滚轮滚动事件
   }
 }
 </script>

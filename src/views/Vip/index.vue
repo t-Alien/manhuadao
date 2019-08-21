@@ -1,7 +1,7 @@
 <template>
   <!-- vip VIP专区组件页面 -->
-  <div class="page-vip">
-    <TabBar ref="Model" @click="scroll" />
+  <div class="page-vip" ref="myVip">
+    <TabBar v-show="isShow" />
     <div class="header-vip">
       <div class="header-back" @click="vipBack"></div>
       <span>VIP专区</span>
@@ -26,36 +26,48 @@
 
 <script>
 import request from '../../utils/request'
-// import TabBar from '../../components/TabBar'
+
 export default {
   name: 'vip',
-  data () {
+  data() {
     return {
       vipList: [],
-      isShow: false
+      isShow: false,
     }
   },
-  // components: {
-  //   TabBar
-  // },
   methods: {
-    getVipList () {
+    getVipList() {
       request.get('/vip').then(data => {
-        // console.log(response.data)
         this.vipList = data
       })
     },
-    vipBack () {
+    vipBack() {
       this.$router.back()
     },
     ChangeModel() {
       this.$refs.Model.show()
     },
-    scroll() {}
+    handleScroll(e) {
+      var scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop
+      if (scrollTop > 120) {
+        this.isShow = true
+      } else {
+        this.isShow = false
+      }
+    },
+    fatherMethod() {
+      document.documentElement.scrollTop = 0
+    }
   },
-
-  created () {
+  created() {
     this.getVipList()
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll, true)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll) //  离开页面清除（移除）滚轮滚动事件
   }
 }
 </script>

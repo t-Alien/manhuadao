@@ -1,7 +1,7 @@
 <template>
   <!-- home 首页组件页面 -->
   <div class="page-home">
-    <TabBar />
+    <TabBar v-show="isShow" />
     <!-- 头部 -->
     <div class="header">
       <router-link to="/mine">
@@ -72,7 +72,9 @@ export default {
     Content
   },
   data() {
-    return {}
+    return {
+      isShow: false
+    }
   },
   computed: {
     ...mapState('banner', ['bannerList']),
@@ -81,11 +83,29 @@ export default {
   methods: {
     ...mapActions('banner', ['getBannerList']),
     ...mapMutations('banner', ['setBannerList']),
-    ...mapActions('content', ['getDetails'])
+    ...mapActions('content', ['getDetails']),
+    handleScroll(e) {
+      var scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop
+      if (scrollTop > 200) {
+        this.isShow = true
+      } else {
+        this.isShow = false
+      }
+    },
+    fatherMethod() {
+      document.documentElement.scrollTop = 0
+    }
   },
   created() {
     this.getBannerList()
     this.getDetails()
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll, true)
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll) //  离开页面清除（移除）滚轮滚动事件
   }
 }
 </script>

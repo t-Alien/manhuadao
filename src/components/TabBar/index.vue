@@ -1,27 +1,14 @@
 <template>
-  <div class="go-top" v-if="model">
+  <div class="go-top" @click="childMethod()">
     <div class="icon-arrow-up"></div>顶部
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      model: false
-    }
-  },
   methods: {
-    show() {
-      this.model = true
-    },
-    ConfirmHandler() {
-      this.show()
-      this.$emit('Confirm')
-    },
-    CancelHandler() {
-      this.show()
-      this.$emit('Cancel')
+    childMethod() {
+      this.$parent.fatherMethod()
     }
   }
 }
