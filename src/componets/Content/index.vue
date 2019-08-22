@@ -3,7 +3,7 @@
     <div class="index-item" >
         <div class="title-group">
             <h2>人气推荐</h2>
-            <router-link to='/more' tag='span'>更多></router-link>
+            <router-link :to='"/more/"+list[0].type+"?name="+list[0].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommend">
             <li class="item" v-for='item in dets[0] && dets[0].comicslist' :key='item.bigbook_id'>
@@ -16,7 +16,7 @@
     <div class="index-itemo">
         <div class="title-group">
             <h2>独家首发</h2>
-            <router-link to='/more' tag='span'>更多></router-link>
+            <router-link :to='"/more/"+list[1].type+"?name="+list[1].name' tag='span'>更多></router-link>
         </div>
         <div class="recommendo">
             <ul class="ullist">
@@ -31,7 +31,7 @@
     <div class="index-item">
         <div class="title-group">
             <h2>VIP专区</h2>
-            <router-link to='/more' tag='span'>更多></router-link>
+            <router-link :to='"/more/"+list[2].type+"?name="+list[2].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommend">
             <li class="item" v-for='item in dets[2] && dets[2].comicslist' :key='item.bigbook_id'>
@@ -45,7 +45,7 @@
     <div class="index-itemt">
         <div class="title-group">
             <h2>强力推荐</h2>
-            <router-link to='/more' tag='span'>更多></router-link>
+            <router-link :to='"/more/"+list[3].type+"?name="+list[3].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommendt">
             <li class="itemt" v-for='item in dets[3] && dets[3].comicslist' :key='item.bigbook_id'>
@@ -58,7 +58,7 @@
     <div class="index-itemt">
         <div class="title-group">
             <h2>燃烧吧热血</h2>
-            <router-link to='/more' tag='span'>更多></router-link>
+            <router-link :to='"/more/"+list[4].type+"?name="+list[4].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommendt">
             <li class="itemt" v-for='item in dets[4] && dets[4].comicslist' :key='item.bigbook_id'>
@@ -71,7 +71,7 @@
     <div class="index-itemt">
         <div class="title-group">
             <h2>少女恋爱系</h2>
-            <router-link to='/more' tag='span'>更多></router-link>
+            <router-link :to='"/more/"+list[5].type+"?name="+list[5].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommendt">
             <li class="itemt" v-for='item in dets[5] && dets[5].comicslist' :key='item.bigbook_id'>
@@ -84,7 +84,7 @@
     <div class="index-itemt">
         <div class="title-group">
             <h2>完结神作</h2>
-            <router-link to='/more' tag='span'>更多></router-link>
+            <router-link :to='"/more/"+list[6].type+"?name="+list[6].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommendt">
             <li class="itemt" v-for='item in dets[6] && dets[6].comicslist' :key='item.bigbook_id'>
@@ -97,7 +97,7 @@
     <div class="index-itemt">
         <div class="title-group">
             <h2>恐怖灵异馆</h2>
-            <router-link to='/more' tag='span'>更多></router-link>
+            <router-link :to='"/more/"+list[7].type+"?name="+list[7].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommendt">
             <li class="itemt" v-for='item in dets[7] && dets[7].comicslist' :key='item.bigbook_id'>
@@ -110,7 +110,7 @@
     <div class="index-itemt">
         <div class="title-group">
             <h2>轻松搞笑风</h2>
-            <router-link to='/more' tag='span'>更多></router-link>
+            <router-link :to='"/more/"+list[8].type+"?name="+list[8].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommendt">
             <li class="itemt" v-for='item in dets[8] && dets[8].comicslist' :key='item.bigbook_id'>
@@ -123,7 +123,7 @@
     <div class="index-item">
         <div class="title-group">
             <h2>福利专区</h2>
-            <router-link to='/more' tag='span'>更多></router-link>
+            <router-link :to='"/more/"+list[9].type+"?name="+list[9].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommend">
             <li class="item" v-for='item in dets[9] && dets[9].comicslist' :key='item.bigbook_id'>
@@ -137,7 +137,7 @@
     <div class="index-item">
         <div class="title-group">
             <h2>魔幻奇谈</h2>
-            <router-link to='/more' tag='span'>更多></router-link>
+            <router-link :to='"/more/"+list[10].type+"?name="+list[10].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommend">
             <li class="item" v-for='item in dets[10] && dets[10].comicslist' :key='item.bigbook_id'>
@@ -151,7 +151,7 @@
     <div class="index-item">
         <div class="title-group">
             <h2>小编推荐</h2>
-            <router-link to='/more' tag='span'>更多></router-link>
+            <router-link :to='"/more/"+list[11].type+"?name="+list[11].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommend">
             <li class="item" v-for='item in dets[11] && dets[11].comicslist' :key='item.bigbook_id'>
@@ -165,7 +165,7 @@
     <div class="index-itemt">
         <div class="title-group">
             <h2>大家都在看</h2>
-            <router-link to='/more' tag='span'>更多></router-link>
+            <router-link :to='"/more/"+list[12].type+"?name="+list[12].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommendt">
             <li class="itemt" v-for='item in dets[12] && dets[12].comicslist' :key='item.bigbook_id'>
@@ -177,9 +177,9 @@
     </div>
     <div class="index-iteml">
         <div class="title-group">
-            <img src="http://img.manhuadao.cn/upload/icon/180208/ic_renqi2.png" alt="">
+            <img src="https://img.manhuadao.cn/upload/icon/180208/ic_paihang.png" alt="">
             <h2>一周热门排行</h2>
-            <router-link to='/more' tag='span'>更多></router-link>
+            <router-link :to='"/more/"+list[13].type+"?name="+list[13].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommendl">
             <li class="iteml" v-for='item in dets[13] && dets[13].comicslist' :key='item.bigbook_id' >
@@ -206,8 +206,29 @@ export default {
   name: 'Content',
   props: {
     dets: Array
+  },
+  data(){
+      return {
+          list: [
+                { name: '人气推荐', type: 'Popular' },
+                { name: '独家首发', type: 'starter' },
+                { name: 'Vip专区', type: 'vipZone' },
+                { name: '强力推荐', type: 'stronglyRecommended' },
+                { name: '燃烧吧热血', type: 'warmBlood' },
+                { name: '少女恋爱系', type: 'lovaList' },
+                { name: '完结神作', type: 'end' },
+                { name: '恐怖灵异馆', type: 'terror' },
+                { name: '轻松搞笑风', type: 'relaxed' },
+                { name: '福利专区', type: 'welfare' },
+                { name: '魔幻奇谈', type: 'magical' },
+                { name: '小编推荐', type: 'recommend' },
+                { name: '大家都在看', type: 'master' },
+                { name: '一周热门排行', type: 'hot' }
+              ],
+
+        }
+      }
   }
-}
 </script>
 
 <style lang='scss'>
