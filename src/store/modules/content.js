@@ -18,6 +18,7 @@ export default {
       request.get('https://mhd.zhuishushenqi.com/comic_v2/customerview?apptype=8&appversion=1.0&channel=web-app&viewtype=1')
         .then(response => {
           if (response.code === 200) {
+            console.log(response.info[6].comicslist)
             commit({
               type: 'setDetails',
               info: response.info
