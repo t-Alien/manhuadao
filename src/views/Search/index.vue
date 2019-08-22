@@ -18,7 +18,7 @@
     <div class="search-history">
       <div class="search-ht">
         <p>最近搜索</p>
-        <i class="iconfont icon-xiazai14"></i>
+        <i class="iconfont icon-xiazai14" @click="del"></i>
       </div>
       <ul>
         <li v-for='(item,index) in searchList' :key='index'>
@@ -75,7 +75,10 @@ export default {
       this.$router.push('/vip')
     },
 
-    
+    del(){
+      localStorage.removeItem('search');
+      this.searchList=[];
+    },
     
   },
   
