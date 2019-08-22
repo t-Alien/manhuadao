@@ -5,7 +5,7 @@
     <div class="header-rank">
       <div class="header-back" @click="rangkingBack"></div>
       <span>排行榜</span>
-      <div class="header-search"></div>
+      <router-link class="header-search" to="/search"></router-link>
     </div>
     <ul class="ranking-list">
       <li v-for="item in list" :key="item.id" class="ranking-bank">
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import RankingList from '../../components/RankingList'
 import request from '../../utils/request'
 
