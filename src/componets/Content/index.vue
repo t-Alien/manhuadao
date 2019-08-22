@@ -2,7 +2,10 @@
 <div class="page-main">
     <div class="index-item" >
         <div class="title-group">
-            <h2>人气推荐</h2>
+            <div class="tit">
+                <img src="http://img.manhuadao.cn/upload/icon/180208/ic_renqi2.png" alt="">
+                <h2>人气推荐</h2>
+            </div>
             <router-link :to='"/more/"+list[0].type+"?name="+list[0].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommend">
@@ -15,7 +18,10 @@
     </div>
     <div class="index-itemo">
         <div class="title-group">
-            <h2>独家首发</h2>
+            <div class="tit">
+                <img src="http://img.manhuadao.cn/upload/icon/180208/ic_gufeng.png" alt="">
+                <h2>独家首发</h2>
+            </div>
             <router-link :to='"/more/"+list[1].type+"?name="+list[1].name' tag='span'>更多></router-link>
         </div>
         <div class="recommendo">
@@ -30,7 +36,10 @@
     </div>
     <div class="index-item">
         <div class="title-group">
-            <h2>VIP专区</h2>
+            <div class="tit">
+                <img src="http://img.manhuadao.cn/upload/icon/180208/ic_vip.png" alt="">
+                <h2>VIP专区</h2>
+            </div>
             <router-link :to='"/more/"+list[2].type+"?name="+list[2].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommend">
@@ -44,7 +53,10 @@
     </div>
     <div class="index-itemt">
         <div class="title-group">
-            <h2>强力推荐</h2>
+            <div class="tit">
+                <img src="http://img.manhuadao.cn/upload/icon/180208/ic_xinman.png" alt="">
+                <h2>强力推荐</h2>
+            </div>
             <router-link :to='"/more/"+list[3].type+"?name="+list[3].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommendt">
@@ -57,7 +69,10 @@
     </div>
     <div class="index-itemt">
         <div class="title-group">
-            <h2>燃烧吧热血</h2>
+            <div class="tit">
+                <img src="http://img.manhuadao.cn/upload/icon/180208/ic_rexue.png" alt="">
+                <h2>燃烧吧热血</h2>
+            </div>
             <router-link :to='"/more/"+list[4].type+"?name="+list[4].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommendt">
@@ -70,7 +85,10 @@
     </div>
     <div class="index-itemt">
         <div class="title-group">
-            <h2>少女恋爱系</h2>
+            <div class="tit">
+                <img src="http://img.manhuadao.cn/upload/icon/180208/shaonv.png" alt="">
+                <h2>少女恋爱系</h2>
+            </div>
             <router-link :to='"/more/"+list[5].type+"?name="+list[5].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommendt">
@@ -83,7 +101,11 @@
     </div>
     <div class="index-itemt">
         <div class="title-group">
-            <h2>完结神作</h2>
+            <div class="tit">
+                <img src="http://img.manhuadao.cn/upload/icon/180208/ic_yuanc.png" alt="">
+                <h2>完结神作</h2>
+            </div>
+            
             <router-link :to='"/more/"+list[6].type+"?name="+list[6].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommendt">
@@ -96,7 +118,10 @@
     </div>
     <div class="index-itemt">
         <div class="title-group">
-            <h2>恐怖灵异馆</h2>
+            <div class="tit">
+                <img src="http://img.manhuadao.cn/upload/icon/180208/ic_lingyi.png" alt="">
+                <h2>恐怖灵异馆</h2>
+            </div>
             <router-link :to='"/more/"+list[7].type+"?name="+list[7].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommendt">
@@ -109,7 +134,10 @@
     </div>
     <div class="index-itemt">
         <div class="title-group">
-            <h2>轻松搞笑风</h2>
+            <div class="tit">
+                <img src="http://img.manhuadao.cn/upload/icon/180208/ic_gaoxiao.png" alt="">
+                <h2>轻松搞笑风</h2>
+            </div>
             <router-link :to='"/more/"+list[8].type+"?name="+list[8].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommendt">
@@ -122,7 +150,10 @@
     </div>
     <div class="index-item">
         <div class="title-group">
-            <h2>福利专区</h2>
+            <div class="tit">
+                <img src="http://img.manhuadao.cn/upload/icon/180208/ic_wanj.png" alt="">
+                <h2>福利专区</h2>
+            </div>
             <router-link :to='"/more/"+list[9].type+"?name="+list[9].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommend">
@@ -136,7 +167,10 @@
     </div>
     <div class="index-item">
         <div class="title-group">
-            <h2>魔幻奇谈</h2>
+            <div class="tit">
+                <img src="http://img.manhuadao.cn/upload/icon/180208/ic_renqi.png" alt="">
+                <h2>魔幻奇谈</h2>
+            </div>
             <router-link :to='"/more/"+list[10].type+"?name="+list[10].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommend">
@@ -150,7 +184,10 @@
     </div>
     <div class="index-item">
         <div class="title-group">
-            <h2>小编推荐</h2>
+            <div class="tit">
+                <img src="http://img.manhuadao.cn/upload/icon/180208/shaonv.png" alt="">
+                <h2>小编推荐</h2>
+            </div>
             <router-link :to='"/more/"+list[11].type+"?name="+list[11].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommend">
@@ -164,7 +201,10 @@
     </div>
     <div class="index-itemt">
         <div class="title-group">
-            <h2>大家都在看</h2>
+            <div class="tit">
+                <img src="http://img.manhuadao.cn/upload/icon/180516/ic_neko2.png" alt="">
+                <h2>大家都在看</h2>
+            </div>
             <router-link :to='"/more/"+list[12].type+"?name="+list[12].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommendt">
@@ -177,8 +217,10 @@
     </div>
     <div class="index-iteml">
         <div class="title-group">
-            <img src="https://img.manhuadao.cn/upload/icon/180208/ic_paihang.png" alt="">
-            <h2>一周热门排行</h2>
+            <div class="tit">
+                <img src="https://img.manhuadao.cn/upload/icon/180208/ic_paihang.png" alt="">
+                <h2>一周热门排行</h2>
+            </div>
             <router-link :to='"/more/"+list[13].type+"?name="+list[13].name' tag='span'>更多></router-link>
         </div>
         <ul class="recommendl">
@@ -247,11 +289,21 @@ export default {
     position: relative;
     padding: 20px 0;
     text-align: center;
-    h2{
-        color: #3a3a3a;
-        text-align: center;
-        padding-top: 8px;
+    .tit{
+        position: relative;
         display: inline-block;
+        width: 130px;
+        h2{
+        color: #3a3a3a;
+        padding-top: 8px;
+        }
+        img{
+            top: 8px;
+            left: 0;
+            height: 22px;
+            width: 22px;
+            position: absolute;
+        }
     }
     span{
         color: #b0b0b0;
@@ -389,14 +441,6 @@ p2_common{
 }
 .index-iteml{
     @include border-home;
-    .title-group img{
-        height: 22px;
-        width: 22px;
-        display: inline-block;
-        position: absolute;
-        top:27px;
-        left: 118px;
-    }
     .iteml{
         margin-bottom: 10px;
         display: flex;

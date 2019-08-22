@@ -70,8 +70,12 @@ export default {
     },
     //添加操作
     addTag(st){
-      this.searchList.push(this.$refs[`hot${st}`][0].innerHTML);
-      localStorage.setItem('search',JSON.stringify(this.searchList))
+      let txt = this.$refs[`hot${st}`][0].innerHTML;
+      if(this.searchList.indexOf(txt)===-1){
+        this.searchList.push(txt);
+        localStorage.setItem('search',JSON.stringify(this.searchList))
+      }
+      
       this.$router.push('/vip')
     },
 
