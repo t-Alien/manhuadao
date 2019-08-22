@@ -9,7 +9,7 @@
             <li class="item" v-for='item in dets[0] && dets[0].comicslist' :key='item.bigbook_id'>
                <div class="img-wrap"><img :src="item.coverurl"></div>
                <p>{{item.bigbook_name}}</p>
-               <p>{{item.key_name}}</p>
+               <p>{{item.extension | format}}</p>
             </li>
         </ul>
     </div>
@@ -37,7 +37,7 @@
             <li class="item" v-for='item in dets[2] && dets[2].comicslist' :key='item.bigbook_id'>
                <div class="img-wrap"><img :src="item.coverurl"></div>
                <p>{{item.bigbook_name}}</p>
-               <p>{{item.key_name}}</p>
+               <p>{{item.extension | format}}</p>
 
             </li>
         </ul>
@@ -129,7 +129,7 @@
             <li class="item" v-for='item in dets[9] && dets[9].comicslist' :key='item.bigbook_id'>
                <div class="img-wrap"><img :src="item.coverurl"></div>
                <p>{{item.bigbook_name}}</p>
-               <p>{{item.key_name}}</p>
+               <p>{{item.extension | format}}</p>
 
             </li>
         </ul>
@@ -143,7 +143,7 @@
             <li class="item" v-for='item in dets[10] && dets[10].comicslist' :key='item.bigbook_id'>
                <div class="img-wrap"><img :src="item.coverurl"></div>
                <p>{{item.bigbook_name}}</p>
-               <p>{{item.key_name}}</p>
+               <p>{{item.extension | format}}</p>
 
             </li>
         </ul>
@@ -157,7 +157,7 @@
             <li class="item" v-for='item in dets[11] && dets[11].comicslist' :key='item.bigbook_id'>
                <div class="img-wrap"><img :src="item.coverurl"></div>
                <p>{{item.bigbook_name}}</p>
-               <p>{{item.key_name}}</p>
+               <p>{{item.extension | format}}</p>
 
             </li>
         </ul>
@@ -189,7 +189,7 @@
                <div class="right">
                     <h4>{{item.bigbook_name}}</h4>
                     <p>作者: <span>{{item.bigbook_author}}</span></p>
-                    <p>{{item.brief}}</p>
+                    <p>{{item.key_name}}</p>
                </div>
             </li>
         </ul>
@@ -206,6 +206,15 @@ export default {
   name: 'Content',
   props: {
     dets: Array
+  },
+
+  filters:{
+      format:function(val){
+          return JSON.parse(val).recommendwords;
+      }
+  },
+  methods:{
+     
   },
   data(){
       return {
@@ -298,7 +307,8 @@ p2_common{
         @extend p1_common;
         }
         p:nth-of-type(2){
-        @extend p2_common
+        @extend p2_common;
+        width: 173px;
         }
     }
 }
