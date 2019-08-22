@@ -5,7 +5,7 @@
     <div class="header-vip">
       <div class="header-back" @click="vipBack"></div>
       <span>VIP专区</span>
-      <div class="header-search"></div>
+      <router-link class="header-search" to="/search"></router-link>
     </div>
     <ul class="vip-list-ul">
       <li v-for="item in vipList" :key="item.id" class="vip-list-item">
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import request from '../../utils/request'
 
 export default {

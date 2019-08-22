@@ -5,13 +5,14 @@
     <div class="header-rank">
       <div class="header-back" @click="moreBack"></div>
       <span>{{moreName}}</span>
-      <div class="header-search"></div>
+      <router-link class="header-search" to="/search"></router-link>
     </div>
     <RankingList :rankingList="rankingList" />
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
 import RankingList from '../../components/RankingList'
 import request from '../../utils/request'
 
