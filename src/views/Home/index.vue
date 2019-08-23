@@ -4,20 +4,6 @@
     <TabBar v-show="isShow" />
     <!-- 头部 -->
     <div class="header">
-<<<<<<< HEAD
-=======
-      <!-- <router-link to="/mine2">
-        <i class="tx">
-          <img
-            src="../../../public/img/tx.jpg"
-            style=" width: 25px;
-      height: 25px;
-      border-radius: 50%;"
-          />
-        </i>
-      </router-link>-->
-
->>>>>>> loginer
       <router-link to="/mine">
         <i class="iconfont icon-geren"></i>
       </router-link>
