@@ -39,7 +39,7 @@ export default {
     },
     // 获取数据
     getList() {
-      request.get('/more').then(res => {
+      request.get('/db/more').then(res => {
         //console.log(res)
         this.rankingList = res[this.curType]
       })

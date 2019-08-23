@@ -52,7 +52,7 @@ export default {
       this.getDate()
     },
     getDate() {
-      request.get('/classify').then(res => {
+      request.get('/db/classify').then(res => {
         this.classifyList = res[this.curType]
       })
     },

@@ -6,7 +6,7 @@ import axios from 'axios'
 // 2、创建一个axios 的实例对象
 const request = axios.create({
   // 默认配置
-  baseURL: 'http://localhost:3000'
+  // baseURL: 'http://localhost:3000'
 })
 
 // 3、实现一些拦截功能

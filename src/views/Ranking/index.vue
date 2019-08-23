@@ -44,7 +44,7 @@ export default {
   methods: {
     // 获取数据
     getList() {
-      request.get('/ranking').then(res => {
+      request.get('/db/ranking').then(res => {
         //console.log(res)
         this.rankingList = res[this.curType]
       })

@@ -33,12 +33,12 @@ export default {
   data() {
     return {
       vipList: [],
-      isShow: false,
+      isShow: false
     }
   },
   methods: {
     getVipList() {
-      request.get('/vip').then(data => {
+      request.get('/db/vip').then(data => {
         this.vipList = data
       })
     },
