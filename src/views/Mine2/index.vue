@@ -60,9 +60,6 @@ export default {
 </script>
 
 <style lang="scss">
-body {
-  // background-color: #f4f4f4;
-}
 .page-mine2 {
   background-color: #f4f4f4;
   font-size: 1.06rem;
