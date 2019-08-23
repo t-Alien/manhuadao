@@ -83,13 +83,10 @@ export default {
     Content
   },
   data() {
-<<<<<<< HEAD
     return {
       isShow: false
+      //  loginer()
     }
-=======
-    return {}
->>>>>>> loginer
   },
   computed: {
     ...mapState('banner', ['bannerList']),
